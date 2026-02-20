@@ -1,6 +1,7 @@
 import {createMs} from "enhanced-ms"
 import {useEffect, useState} from "react";
 import type {Departure} from "../../types/rmv.ts";
+import "./tramdetail.css"
 
 export function TramDetail({departure, position}:{ departure: Departure, position:number}) {
 
@@ -27,21 +28,28 @@ export function TramDetail({departure, position}:{ departure: Departure, positio
     }, [departure]);
 
     return (
-        <div>
+        <div className="detail">
+            <div className="tram-detail">
+                <div>
+                    {departure.direction}
+                </div>
+                <div className="timer">
+                    {position === 0 ? timer : ""}
+                </div>
+            </div>
             <div>
                 {departure.Messages?.Message.map((message, index) => {
-                    if (position === 0) {
-                        return (
-                            <div className="border border-red-700 border-dashed text-sm" key={index}>
-                                <div>{message.head}</div>
-                                <div>{message.lead}</div>
-                            </div>
-                        )
+                        if (position === 0) {
+                            return (
+                                <div key={index}>
+                                    <div>{message.head}</div>
+                                    <div>{message.lead}</div>
+                                </div>
+                            )
+                        }
                     }
-                }
                 )}
             </div>
-            {departure.name} {departure.time} {departure.direction} {position === 0 ? timer : ""}
         </div>
-    )
+    );
 }

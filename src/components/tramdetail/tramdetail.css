@@ -1,0 +1,17 @@
+.detail {
+    min-height: 80px;
+}
+
+.tram-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.timer {
+    font-size: 1.5rem;
+    color: rgba(0, 255, 13, 0.83);
+    min-width: 170px;
+    text-align: right;
+    margin-top: -5px;
+}

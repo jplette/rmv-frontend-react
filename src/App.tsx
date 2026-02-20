@@ -1,6 +1,7 @@
 import 'primereact/resources/themes/lara-dark-blue/theme.css'
 import 'primereact/resources/primereact.min.css'; //core css
 import 'primeicons/primeicons.css'; //icons
+import 'primeflex/primeflex.css';
 import './App.css'
 import {TramView} from "./components/tramview/tramview.tsx";
 

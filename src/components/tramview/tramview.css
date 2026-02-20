@@ -1,0 +1,18 @@
+.tramview {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.departures-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.departures {
+    flex: 1;
+    display: flex;
+}

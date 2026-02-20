@@ -1,0 +1,8 @@
+.direction-container {
+    flex: 1;
+    display: flex;
+}
+
+.direction {
+    flex: 1;
+}

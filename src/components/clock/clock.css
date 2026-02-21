@@ -1,0 +1,10 @@
+.clock {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color, #fff);
+    padding: 0.5rem 1rem;
+    background: #1f2937;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: monospace;
+}

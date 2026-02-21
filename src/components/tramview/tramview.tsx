@@ -14,7 +14,8 @@ export function TramView() {
         let timeoutTimer: ReturnType<typeof setTimeout>;
 
         const fetchData = () => {
-            fetch("http://localhost:8080/next-departures")
+            const baseUrl = import.meta.env.VITE_BACKEND_API_BASE_URL || "";
+            fetch(`${baseUrl}/next-departures`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error("Network response was not ok");

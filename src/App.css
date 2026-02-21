@@ -30,7 +30,7 @@ main {
   flex: 1;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .layout-wrapper {
     padding: 2rem;
     display: flex;

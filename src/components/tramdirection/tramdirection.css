@@ -19,18 +19,15 @@
  padding: 0;
 }
 
-h3 {
-    margin: 0.5em 0.83em 0.5em 0.83em;
+.direction h2, .direction h3 {
+    margin: 0;
 }
 
 .spacer {
     margin: 25px 0;
 }
 
-@media (min-width: 600px) {
-    h3 {
-        margin: 0.83em 0.83em;
-    }
+@media (min-width: 900px) {
 
     .p-card .p-card-content {
         padding: 1.25rem 0;

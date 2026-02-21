@@ -29,7 +29,10 @@ export function TramDirection({departures, direction}:{ departures: Departure[],
     return (
         <div className="direction-container">
             <Card className="direction">
-                <h3>Richtung {direction}</h3>
+                <div>
+                    <h2>{departures.length > 0 ? departures[0].stop : ''}</h2>
+                    <h3>Richtung {direction}</h3>
+                </div>
 
                 <div className="spacer"></div>
                 <Timeline value={departures} opposite={(item) => item.time}

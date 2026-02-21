@@ -1,31 +1,8 @@
-import {createMs} from "enhanced-ms"
-import {useEffect, useState} from "react";
 import type {Departure} from "../../types/rmv.ts";
 import "./tramdetail.css"
+import {Timer} from "../timer/timer.tsx";
 
 export function TramDetail({departure, position}:{ departure: Departure, position:number}) {
-
-    const [timer, setTimer] = useState("")
-
-    useEffect(() => {
-        const departureTime = Date.parse(departure.rtDate + "T" + departure.rtTime);
-        const ms = createMs({language: "de"})
-
-        const updateTimer = () => {
-            const duration = departureTime - Date.now();
-            if (duration > 0) {
-                setTimer(ms(duration, {extends: "short" }) || "");
-            } else {
-                setTimer("");
-            }
-
-        };
-
-        updateTimer();
-        const interval = setInterval(updateTimer, 1000);
-
-        return () => clearInterval(interval);
-    }, [departure]);
 
     return (
         <div className="detail">
@@ -33,17 +10,22 @@ export function TramDetail({departure, position}:{ departure: Departure, positio
                 <div>
                     {departure.direction}
                 </div>
-                <div className="timer">
-                    {position === 0 ? timer : ""}
-                </div>
+                {position === 0 &&
+                    <Timer endTime={Date.parse(departure.rtDate + "T" + departure.rtTime)} />
+                }
             </div>
             <div>
                 {departure.Messages?.Message.map((message, index) => {
                         if (position === 0) {
                             return (
-                                <div key={index}>
-                                    <div>{message.head}</div>
-                                    <div>{message.lead}</div>
+                                <div key={index} className="alert-message">
+                                    <div>
+                                        <i className="pi pi-exclamation-triangle" style={{ color: 'var(--red-500)', fontSize: '1.5rem' }}></i>
+                                    </div>
+                                    <div className="alert-head">
+                                        {message.head}
+                                    </div>
+                                    <div className="alert-lead">{message.lead}</div>
                                 </div>
                             )
                         }

@@ -12,5 +12,31 @@
 }
 
 .p-timeline.p-timeline-vertical .p-timeline-event-opposite, .p-timeline.p-timeline-vertical .p-timeline-event-content {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
+}
+
+.p-card .p-card-content {
+ padding: 0;
+}
+
+h3 {
+    margin: 0.5em 0.83em 0.5em 0.83em;
+}
+
+.spacer {
+    margin: 25px 0;
+}
+
+@media (min-width: 600px) {
+    h3 {
+        margin: 0.83em 0.83em;
+    }
+
+    .p-card .p-card-content {
+        padding: 1.25rem 0;
+    }
+
+    .p-timeline.p-timeline-vertical .p-timeline-event-opposite, .p-timeline.p-timeline-vertical .p-timeline-event-content {
+        padding: 0.5rem 1rem;
+    }
 }

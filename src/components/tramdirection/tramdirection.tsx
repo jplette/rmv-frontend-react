@@ -7,12 +7,21 @@ import {Timeline} from "primereact/timeline";
 
 export function TramDirection({departures, direction}:{ departures: Departure[], direction: string}) {
 
-    const customizedMarker = (item: any) => {
+    const customizedMarker = (item: Departure) => {
+        const bgColor = (item.Product
+            && item.Product[0]
+            && item.Product[0].icon
+            && item.Product[0].icon.backgroundColor
+            && item.Product[0].icon.backgroundColor.hex) ? item.Product[0].icon.backgroundColor.hex : undefined;
+
+        const line = (item.Product
+            && item.Product[0] && item.Product[0].line) ? item.Product[0].line : '';
+
         return (
             <span
                 className="flex w-2rem h-2rem align-items-center justify-content-center text-white border-circle z-1 shadow-1"
-                style={{backgroundColor: item.Product[0].icon.backgroundColor.hex}}>
-                <i>{item.Product[0].line}</i>
+                style={{backgroundColor: bgColor}}>
+                <i>{line}</i>
             </span>
         );
     };
@@ -20,8 +29,9 @@ export function TramDirection({departures, direction}:{ departures: Departure[],
     return (
         <div className="direction-container">
             <Card className="direction">
-                <h3>{direction}</h3>
+                <h3>Richtung {direction}</h3>
 
+                <div className="spacer"></div>
                 <Timeline value={departures} opposite={(item) => item.time}
                           content={(item) => <TramDetail departure={item} position={departures.indexOf(item)} />}
                           marker={customizedMarker} />

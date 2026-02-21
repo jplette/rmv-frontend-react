@@ -100,6 +100,7 @@ export interface ProductType {
 
 export interface IconType {
   res?: string;
+  backgroundColor?: { hex?: string }
 }
 
 export interface Notes {

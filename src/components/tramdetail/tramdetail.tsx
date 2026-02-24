@@ -11,7 +11,7 @@ export function TramDetail({departure, position}:{ departure: Departure, positio
                     {departure.direction}
                 </div>
                 {position === 0 &&
-                    <Timer endTime={Date.parse(departure.rtDate + "T" + departure.rtTime)} />
+                    <Timer endTime={Date.parse(departure.date + "T" + departure.time)} />
                 }
             </div>
             <div>

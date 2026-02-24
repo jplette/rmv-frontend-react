@@ -57,11 +57,6 @@ export interface Departure {
   tz?: number;
   track?: string;
   trackHidden?: boolean;
-  rtTime?: string;
-  rtDate?: string;
-  rtTz?: number;
-  rtTrack?: string;
-  rtTrackHidden?: boolean;
   cancelled?: boolean;
   partCancelled?: boolean;
   reachable?: boolean;

@@ -26,12 +26,12 @@ export function TramView() {
                     const departures = data?.Departure || [];
                     const now = new Date().getTime();
                     const firstFutureDeparture = departures.find(departure => {
-                        const departureTime = Date.parse(departure.rtDate + "T" + departure.rtTime);
+                        const departureTime = Date.parse(departure.date + "T" + departure.time);
                         return departureTime > now;
                     });
 
                     if (firstFutureDeparture) {
-                        const departureTime = Date.parse(firstFutureDeparture.rtDate + "T" + firstFutureDeparture.rtTime);
+                        const departureTime = Date.parse(firstFutureDeparture.date + "T" + firstFutureDeparture.time);
                         const timeout = Math.max(1000, departureTime - now + 1000); // at least 1s wait, and 1s after departure
                         timeoutTimer = setTimeout(fetchData, timeout);
                     } else if (departures.length > 0) {
@@ -62,7 +62,7 @@ export function TramView() {
 
     const departuresAll = data?.Departure || [];
     const departures = departuresAll.filter(departure => {
-        const departureTime = Date.parse(departure.rtDate + "T" + departure.rtTime);
+        const departureTime = Date.parse(departure.date + "T" + departure.time);
         const now = new Date().getTime();
         return departureTime > now;
     });
